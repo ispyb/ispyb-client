@@ -20,7 +20,10 @@ def getMeasurements(experiment):
 	for sample in experiment.samples:		
 		measurements = measurements + sample.measurements
 	return sorted(measurements, key=itemgetter('priority')) 
-	
+
+def printMeasurement(measurement):
+	print("\t%s|%s|%s|%s|%s" % (printify(measurement.comment), printify(measurement.specimenId), printify(measurement.measurementId),printify(measurement.viscosity), printify(measurement.code)))
+		
 def printExperiment(experiment):
 	print("\n\n-------------------")
 	print("Experiment")
