@@ -58,7 +58,7 @@ if __name__ == "__main__":
 	densityPlot= "/data/densityPlot.png"
 
 	# Analysis Info
-	client.service.storeHPLCDataAnalysisResult(
+	sampleMeasurementId = client.service.storeHPLCDataAnalysisResult(
 							experimentId,
 							None,
 							None,
@@ -86,3 +86,13 @@ if __name__ == "__main__":
 							kratkyFilePath,
 							densityPlot
 							)
+
+	# Adding abinitio
+	models = "[{pdbFile: '/data/../dammif1.pdb', rg: '1.23', dMax: '232', I0: '12121'},{pdbFile: '/data/../dammif2.pdb', rg: '2.23', dMax: '232', I0: '12121'}]"	
+	damaver = "{'pdbFile' :'/data/pyarch/bm29/mx1431/1140/1d/damaver.pdb'}" 
+	damfilt = "{'pdbFile' :'/data/pyarch/bm29/mx1431/1140/1d/damfilt.pdb'}"
+	damin = "{fitFile:'/data/pyarch/bm29/mx1469/1774/29219/dammin.fit', firFile:'/data/pyarch/bm29/mx1469/1774/29219/dammin.fir', 'pdbFile' :'/data/pyarch/bm29/mx1431/1140/1d/dammin.pdb'}"
+	nsdPlot = "/data/pyarch/bm29/mx1431/1140/1d/nsd.png"
+	chi2plot ="/data/pyarch/bm29/mx1431/1140/1d/chi2_R.png"
+
+	client.service.storeAbInitioModels( "[" + str(sampleMeasurementId) + "]",  models, str(damaver), str(damfilt), str(damin), nsdPlot, chi2plot)

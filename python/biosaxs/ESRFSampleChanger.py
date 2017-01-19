@@ -193,7 +193,7 @@ if __name__ == "__main__":
 
 
 	# Adding abinitio
-	models = "[{pdbFile: '/data/../dammif1.pdb', rg: '1.23', dMax: '232', I0: '12121'},{pdbFile: '/data/../dammif2.pdb', rg: '2.23', dMax: '232', I0: '12121'}]"	
+	models = "[{pdbFile: '/data/../dammif1.pdb', rg: '1.23', dmax: '232', chiSqrt: '1', rfactor: '2'},{pdbFile: '/data/../dammif2.pdb', rg: '2.23', chiSqrt: '232', dmax: '3', rfactor: '4'}]"	
 	damaver = "{'pdbFile' :'/data/pyarch/bm29/mx1431/1140/1d/damaver.pdb'}" 
 	damfilt = "{'pdbFile' :'/data/pyarch/bm29/mx1431/1140/1d/damfilt.pdb'}"
 	damin = "{fitFile:'/data/pyarch/bm29/mx1469/1774/29219/dammin.fit', firFile:'/data/pyarch/bm29/mx1469/1774/29219/dammin.fir', 'pdbFile' :'/data/pyarch/bm29/mx1431/1140/1d/dammin.pdb'}"
