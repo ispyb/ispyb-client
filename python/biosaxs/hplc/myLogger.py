@@ -1,9 +1,6 @@
 from operator import itemgetter
 
-def printConfiguration(config):
-	proposal = str(config.get('Connection', 'user'))
-	password = str(config.get('Connection', 'password'))
-	url = str(config.get('Connection', 'url'))
+def printConfiguration(proposal, password, url):
 
 	print("\n\n-------------------")
 	print("Configuration Values")

@@ -4,17 +4,22 @@ from suds.transport.http import HttpAuthenticated
 import os, shutil
 from pprint import pprint
 import ConfigParser
-
+import myLogger
 
 if __name__ == "__main__":
-	# Config file
-	config = ConfigParser.ConfigParser()
-	config.read('ispyb.properties')
 
-	# Connection parameters
-	url = config.get('Connection', 'hplc_esrf_url')
-	username = config.get('Connection', 'user')
-	password = config.get('Connection', 'password')
+	config = ConfigParser.ConfigParser()
+	config.read('../ispyb.properties')
+
+	# File that contains an user and password with permissions on ISPyB should be defined
+	credentialsConfig = ConfigParser.ConfigParser()
+	credentialsConfig.read('../credentials.properties')
+
+	username = str(credentialsConfig.get('Credential', 'user'))
+	password = str(credentialsConfig.get('Credential', 'password'))
+	url = str(config.get('Connection', 'url'))
+
+	myLogger.printConfiguration(username, password, url)
 
 	# Authentication
 	httpAuthenticatedToolsForAutoprocessingWebService = HttpAuthenticated(username = username, password = password ) 
@@ -96,3 +101,5 @@ if __name__ == "__main__":
 	chi2plot ="/data/pyarch/bm29/mx1431/1140/1d/chi2_R.png"
 
 	client.service.storeAbInitioModels( "[" + str(sampleMeasurementId) + "]",  models, str(damaver), str(damfilt), str(damin), nsdPlot, chi2plot)
+
+        print "HPLC created on ISPyB"

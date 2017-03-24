@@ -59,13 +59,17 @@ def appendMeasurement(  experimentId, runNumber, sampleType, plate, row, well, n
 if __name__ == "__main__":
 
 	config = ConfigParser.ConfigParser()
-	config.read('ispyb.properties')
+	config.read('../ispyb.properties')
 
-	proposal = str(config.get('Connection', 'user'))
-	password = str(config.get('Connection', 'password'))
-	url = str(config.get('Connection', 'GenericSampleChangerBiosaxsWebService_URL'))
+	# File that contains an user and password with permissions on ISPyB should be defined
+	credentialsConfig = ConfigParser.ConfigParser()
+	credentialsConfig.read('../credentials.properties')
 
-	myJSONLogger.printConfiguration(config)
+	proposal = str(credentialsConfig.get('Credential', 'user'))
+	password = str(credentialsConfig.get('Credential', 'password'))
+	url = str(config.get('Connection', 'GenericSampleChangerBiosaxsWebService'))
+
+	myLogger.printConfiguration(proposal, password, url)
 	
 
 	if (user_yes_no_query("Are these values OK?") == False):
@@ -80,13 +84,21 @@ if __name__ == "__main__":
 	######################################
 	# Creating an experiment 
 	######################################
-	experiment = client.service.createEmptyExperiment( config.get('Proposal', 'type'), config.get('Proposal', 'number'), "EMBLSampleChanger Test Experiment" )
+	experiment = client.service.createEmptyExperiment( config.get('Proposal', 'type'), config.get('Proposal', 'number'), "EMBLSampleChanger Test Experiment" )       
+
+
 	experiment = json.loads(experiment)
 	myJSONLogger.printExperiment(experiment)
 
 	if (user_yes_no_query("\nDo you want to Continue?") == False):
 		print "Exit"
 		sys.exit()
+
+        #####################################
+	# Get Experiment Description
+	#####################################
+        description = client.service.getDescriptionByExperimentId(11925)
+        print "Experiment description is: " + str(description)
 
 	#####################################
 	# Append measurements

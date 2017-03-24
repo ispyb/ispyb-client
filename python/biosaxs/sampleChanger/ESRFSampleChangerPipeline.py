@@ -26,14 +26,19 @@ def user_yes_no_query(question):
 
 if __name__ == "__main__":
 
-	config = ConfigParser.ConfigParser()
-	config.read('ispyb.properties')
 
-	proposal = str(config.get('Connection', 'user'))
-	password = str(config.get('Connection', 'password'))
+	config = ConfigParser.ConfigParser()
+	config.read('../ispyb.properties')
+
+	# File that contains an user and password with permissions on ISPyB should be defined
+	credentialsConfig = ConfigParser.ConfigParser()
+	credentialsConfig.read('../credentials.properties')
+
+	proposal = str(credentialsConfig.get('Credential', 'user'))
+	password = str(credentialsConfig.get('Credential', 'password'))
 	url = str(config.get('Connection', 'url'))
 
-	myLogger.printConfiguration(config)
+	myLogger.printConfiguration(proposal, password, url)
 	
 
 	if (user_yes_no_query("Are these values OK?") == False):
