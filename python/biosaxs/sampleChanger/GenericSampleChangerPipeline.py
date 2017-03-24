@@ -97,7 +97,7 @@ if __name__ == "__main__":
         #####################################
 	# Get Experiment Description
 	#####################################
-        description = client.service.getDescriptionByExperimentId(11925)
+        description = client.service.getDescriptionByExperimentId(experiment['experimentId'])
         print "Experiment description is: " + str(description)
 
 	#####################################
