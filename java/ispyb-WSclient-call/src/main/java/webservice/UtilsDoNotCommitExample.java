@@ -1,6 +1,6 @@
 package webservice;
 
-public class UtilsDoNotCommit {
+public class UtilsDoNotCommitExample {
 	
 	public static String SMISU = "***";
 	public static String SMISP = "***";
