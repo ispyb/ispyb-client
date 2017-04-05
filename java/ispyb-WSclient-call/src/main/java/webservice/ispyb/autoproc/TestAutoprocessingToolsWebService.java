@@ -177,12 +177,15 @@ public class TestAutoprocessingToolsWebService {
 		Boolean anomalous = true;
 		Integer autoProcScalingId = 1;//125627;
 		Float ccHalf = (float) 1.4;
+		Float sigAno= (float) 1.4;
+		Float  ccAno= (float) 1.4;
+		Float isa= (float) 1.4;
 
 		ret = ws.storeOrUpdateAutoProcScalingStatistics(autoProcScalingStatisticsId, scalingStatisticsType, comments,
 				resolutionLimitLow, resolutionLimitHigh, rmerge, rmeasWithinIplusIminus, rmeasAllIplusIminus,
 				rpimWithinIplusIminus, rpimAllIplusIminus, fractionalPartialBias, nTotalObservations,
 				nTotalUniqueObservations, meanIoverSigI, completeness, multiplicity, anomalousCompleteness,
-				anomalousMultiplicity, recordTimeStamp, anomalous, autoProcScalingId, ccHalf);
+				anomalousMultiplicity, recordTimeStamp, anomalous, autoProcScalingId, ccHalf, sigAno, ccAno, isa);
 		System.out.println("C This is what I got as a response : autoProcScalingStatisticId  = " + ret + "  \n");
 
 		// foreign key null
@@ -190,7 +193,7 @@ public class TestAutoprocessingToolsWebService {
 				comments, resolutionLimitLow, resolutionLimitHigh, rmerge, rmeasWithinIplusIminus, rmeasAllIplusIminus,
 				rpimWithinIplusIminus, rpimAllIplusIminus, fractionalPartialBias, nTotalObservations,
 				nTotalUniqueObservations, meanIoverSigI, completeness, multiplicity, anomalousCompleteness,
-				anomalousMultiplicity, recordTimeStamp, anomalous, null, ccHalf);
+				anomalousMultiplicity, recordTimeStamp, anomalous, null, ccHalf, sigAno, ccAno, isa);
 		System.out.println("F This is what I got as a response : autoProcScalingStatisticId  = " + ret2 + "  \n");
 
 		// update
@@ -199,7 +202,7 @@ public class TestAutoprocessingToolsWebService {
 				resolutionLimitLow, resolutionLimitHigh, rmerge, rmeasWithinIplusIminus, rmeasAllIplusIminus,
 				rpimWithinIplusIminus, rpimAllIplusIminus, fractionalPartialBias, nTotalObservations,
 				nTotalUniqueObservations, meanIoverSigI, completeness, multiplicity, anomalousCompleteness,
-				anomalousMultiplicity, recordTimeStamp, anomalous, autoProcScalingId, ccHalf);
+				anomalousMultiplicity, recordTimeStamp, anomalous, autoProcScalingId, ccHalf, sigAno, ccAno, isa);
 		System.out.println("U his is what I got as a response : autoProcScalingStatisticId  = " + ret + "  \n");
 	}
 
