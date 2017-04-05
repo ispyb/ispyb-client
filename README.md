@@ -8,15 +8,22 @@ It will ingest data from the json files (json/labcontact.json, json/labcontacts.
  
 #### Requirements:
 
-credentials.properties should exist (someone can copy credentials.properties.example)
+##### credentials.properties 
+
+It should exist (someone can copy credentials.properties.example). Site should be ESRF as the ESRF authenticator will be override to allow dummy authentication.
+
 ```
 [Credential]
-user=opd29	
-password=*****
+user=mx415	
+password=password
+site=ESRF
 
 ```
 
-ispyb.properties
+##### ispyb.properties
+
+This should point to a valid ISPyB instance
+
 ```
 [Connection]
 url=http://localhost:8085/ispyb/ispyb-ws/rest
