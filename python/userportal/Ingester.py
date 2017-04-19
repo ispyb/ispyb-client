@@ -25,8 +25,9 @@ def user_yes_no_query(question):
 
 def authenticate(url, user, password, site, proxies):
     r = requests.post(url + '/authenticate?site=' + site, headers={'content-type': 'application/x-www-form-urlencoded'}, proxies=proxies, data={'login': user, 'password': password})
+   
     token = (json.loads(r.text)['token'])
-    print(r.text)
+   
     return token
   
 def ingest(token, proposers, scientists, sessions, samples, labcontacts ):
@@ -80,10 +81,10 @@ if __name__ == "__main__":
 	  'https': proxy_https,
 	}
 
-	if (user_yes_no_query("Are these values OK?") == False):
-		print "Exit"
-		sys.exit()
-        
+	#if (user_yes_no_query("Are these values OK?") == False):
+	#	print "Exit"
+	#	sys.exit()
+               
         token = authenticate(url, user, password, site, proxies)
         if token is None:
              print("Token can not be None")
