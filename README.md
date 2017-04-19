@@ -44,3 +44,13 @@ cd python/userportal/
 python Ingester.py
 
 ```
+
+#### If you are using ispyb-docker
+
+This will ingest data from user portal (sample and proteins) for proposal mx415 
+```
+git clone https://github.com/ispyb/ispyb-client.git
+cd ispyb-client/
+cd python/userportal/
+python Ingester.py 
+```

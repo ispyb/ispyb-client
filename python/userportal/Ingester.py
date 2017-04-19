@@ -81,9 +81,9 @@ if __name__ == "__main__":
 	  'https': proxy_https,
 	}
 
-	#if (user_yes_no_query("Are these values OK?") == False):
-	#	print "Exit"
-	#	sys.exit()
+	if (user_yes_no_query("Are these values OK?") == False):
+		print "Exit"
+		sys.exit()
                
         token = authenticate(url, user, password, site, proxies)
         if token is None:
