@@ -44,13 +44,14 @@ public class TestShippingToolsWebService {
 		try {
 			System.out.println("*************** testShippingWebServices ***************");
 			initWebService();
+			
+			 testFindProposal();
 
 			 testFindPersonBySessionId();
 			 testFindPersonBySessionIdLocalContact();
 			 testFindProposalByCodeAndNumber();
 			 testFindPersonByCodeAndNumber();
 			 testFindLaboratoryByCodeAndNumber();
-			 testFindProposal();
 			 testFindPersonByProposal();
 			 testFindLaboratoryByProposal();
 
@@ -98,7 +99,7 @@ public class TestShippingToolsWebService {
 	private static void testFindPersonBySessionId() throws Exception {
 		System.out.println("*************** testFindPersonBySessionId ***************");
 		PersonWS3VO pv = null;
-		Integer sessionId = 1;//31362;
+		Integer sessionId = 31362;
 
 		pv = ws.findPersonBySessionId(sessionId);
 		System.out.println("This is what I got as a response : personValue = " + personToString(pv) + "  \n");
@@ -107,7 +108,7 @@ public class TestShippingToolsWebService {
 	private static void testFindPersonBySessionIdLocalContact() throws Exception {
 		System.out.println("*************** testFindPersonBySessionIdLocalContact ***************");
 		PersonWS3VO pv = null;
-		Integer sessionId = 1;//32833;
+		Integer sessionId = 32833;
 
 		pv = ws.findPersonBySessionIdLocalContact(sessionId);
 		System.out.println("This is what I got as a response : personValue = " + personToString(pv) + "  \n");
@@ -151,6 +152,13 @@ public class TestShippingToolsWebService {
 
 		pv = ws.findProposal(code, number);
 		System.out.println("This is what I got as a response : proposalValue = " + proposalToString(pv) + "  \n");
+
+		code = "mx";
+		number = "415";
+
+		pv = ws.findProposal(code, number);
+		System.out.println("This is what I got as a response : proposalValue = " + proposalToString(pv) + "  \n");
+
 	}
 
 	private static void testFindPersonByProposal() throws Exception {

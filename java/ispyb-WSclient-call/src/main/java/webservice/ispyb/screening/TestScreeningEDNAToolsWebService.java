@@ -58,8 +58,8 @@ public class TestScreeningEDNAToolsWebService {
 		java.lang.Integer ret = -1;
 
 		Integer screeningId = null;
-		Integer dataCollectionId = 1;//19570;
-		Integer diffractionPlanId = 1;//127806;
+		Integer dataCollectionId = 19570;
+		Integer diffractionPlanId = 127806;
 		Calendar recordTimeStamp = Calendar.getInstance();
 		recordTimeStamp.set(2012, 10, 9, 14, 52, 55);
 		String programVersion = "programVersion";
@@ -91,7 +91,7 @@ public class TestScreeningEDNAToolsWebService {
 
 		Integer screeningRankId = null;
 		Integer screeningRankSetId = 1;
-		Integer screeningId = 1;//80752;
+		Integer screeningId = 80752;
 		Double rankValue = 0.2;
 		String rankInformation = "rankInformation";
 
@@ -118,9 +118,9 @@ public class TestScreeningEDNAToolsWebService {
 		System.out.println("*************** testStoreOrUpdateScreeningRankValue ***************");
 		Integer ret = -1;
 
-		Integer screeningRankId = 1;//6240;
+		Integer screeningRankId = 6240;
 		Integer screeningRankSetId = 1;
-		Integer screeningId = 1;//80752;
+		Integer screeningId = 80752;
 		Double rankValue = 0.3;
 		String rankInformation = "rankInfo";
 		ScreeningRankWS3VO value = new ScreeningRankWS3VO();
@@ -170,7 +170,7 @@ public class TestScreeningEDNAToolsWebService {
 		Integer ret = -1;
 
 		Integer screeningOutputId = null;
-		Integer screeningId = 1;//80752;
+		Integer screeningId = 80752;
 		String statusDescription = "statusDescription";
 		Integer rejectedReflections = 2;
 		Double resolutionObtained = 0.1;
@@ -224,7 +224,7 @@ public class TestScreeningEDNAToolsWebService {
 		Integer ret = -1;
 
 		Integer screeningOutputLatticeId = null;
-		Integer screeningOutputId = 1;//80738;
+		Integer screeningOutputId = 80738;
 		String spaceGroup = "spaceGroup";
 		String pointGroup = "pointGroup";
 		String bravaisLattice = "BravaisLattice";
@@ -281,7 +281,7 @@ public class TestScreeningEDNAToolsWebService {
 		Integer ret = -1;
 
 		Integer screeningStrategyId = null;
-		Integer screeningOutputId = 1;//80738;
+		Integer screeningOutputId =80738;
 		Double phiStart = 0.1;
 		Double phiEnd = 0.2;
 		Double rotation = 0.3;
@@ -316,7 +316,7 @@ public class TestScreeningEDNAToolsWebService {
 		Integer ret = 1;
 
 		Integer screeningStrategyWedgeId = null;
-		Integer screeningStrategyId = 1;//13837;
+		Integer screeningStrategyId = 13837;
 		Integer wedgeNumber = 1;
 		Double resolution = 0.1;
 		Double completeness = 0.2;
@@ -394,7 +394,7 @@ public class TestScreeningEDNAToolsWebService {
 		Integer ret = -1;
 
 		Integer screeningInputId = null;
-		Integer screeningId = 1;//80752;
+		Integer screeningId = 80752;
 		Integer diffractionPlanId = null;
 		Double beamX = 2.1;
 		Double beamY = 3.2;
