@@ -225,7 +225,7 @@ public class TestCollectionToolsWebService {
 		System.out.println("*************** testFindDataCollectionGroup ***************");
 		DataCollectionGroupWS3VO dcg = null;
 		Integer pk = 19570;
-		pk = 1;
+		//pk = 1;
 
 		dcg = ws.findDataCollectionGroup(pk);
 		if (dcg != null)
@@ -448,7 +448,7 @@ public class TestCollectionToolsWebService {
 		long startWS = System.currentTimeMillis();
 
 		Integer dataCollectionId = null;// 1037306;// null;
-		Integer dataCollectionGroupId = 1;//19570;
+		Integer dataCollectionGroupId = 19570;
 		Integer strategySubWedgeOrigId = -1;
 		Integer detectorId = 34;
 		Integer blSubSampleId = null;
@@ -621,8 +621,8 @@ public class TestCollectionToolsWebService {
 		long startWS = System.currentTimeMillis();
 		
 		DataCollectionGroupWS3VO value = new DataCollectionGroupWS3VO();
-		value.setSessionId(1); //local
-		//value.setSessionId(1120);//prod
+		//value.setSessionId(1); //local
+		value.setSessionId(1120);//valid or prod
 		value.setExperimentType("OSC");
 
 //		Integer dataCollectionGroupId = 1023048;// null;
@@ -693,7 +693,7 @@ public class TestCollectionToolsWebService {
 		long startWS = System.currentTimeMillis();
 
 		Integer xfeFluorescenceSpectrumId = null;
-		Integer sessionId = 1;//31533;
+		Integer sessionId = 31533;//1
 		Integer blSampleId = null;
 		String fittedDataFileFullPath = null;
 		String scanFileFullPath = null;
@@ -752,7 +752,7 @@ public class TestCollectionToolsWebService {
 		long startWS = System.currentTimeMillis();
 
 		Integer energyScanId = null;//12878 test one
-		Integer sessionId = 1;//98;
+		Integer sessionId = 98;//1
 		Integer sampleId = null; // 3223
 		String fluorescenceDetector = "Fluo Detector";
 		String scanFileFullPath = "scanFileFullPath";
@@ -837,7 +837,7 @@ public class TestCollectionToolsWebService {
 		long startWS = System.currentTimeMillis();
 
 		Integer imageId = null;
-		Integer dataCollectionId = 1;//19570;
+		Integer dataCollectionId = 19570;//1
 		Integer imageNumber = 2;
 		String fileName = "fileNamefileNamefileNamefileNamefileNamefileNamefileNamefileNamefileName";
 		String fileLocation = "/data/visitor/mx1378/id23eh2/20120906/RAW_DATA/AY/S50bcg_12";
@@ -934,7 +934,7 @@ public class TestCollectionToolsWebService {
 		Integer ret = -1;
 		long startWS = System.currentTimeMillis();
 
-		Integer sessionId = 1;//32509; // null;
+		Integer sessionId = 32509; // null;
 		String projectCode = "projectCode";
 		Calendar startDate = Calendar.getInstance();
 		startDate.set(2012, 10, 9, 14, 50, 23);
@@ -988,7 +988,7 @@ public class TestCollectionToolsWebService {
 		Integer ret = -1;
 		long startWS = System.currentTimeMillis();
 
-		Integer dataCollectionGroupId = 1;//1023048; // null;
+		Integer dataCollectionGroupId = 1023048; // null;//1
 		Calendar startTime = Calendar.getInstance();
 		Calendar endTime = Calendar.getInstance();
 		String experimentType = "SAD";
@@ -1254,7 +1254,7 @@ public class TestCollectionToolsWebService {
 	public static void testGetXDSInfo() throws Exception {
 		System.out.println("*************** testGetXDSInfo ***************");
 
-		Integer dataCollectionId = 1;//1246584;
+		Integer dataCollectionId = 1246584;//1
 		XdsInfo xds = null;
 		xds = ws.getXDSInfo(dataCollectionId);
 		System.out.println("This is what I got as a response : dataCollection: axisRange=" + xds.getAxisRange() + ", axisStart = "
@@ -1717,9 +1717,9 @@ public class TestCollectionToolsWebService {
 		RobotActionWS3VO vo = new RobotActionWS3VO();
 		vo.setActionType("LOAD");
 		vo.setBlSampleId(3119);
-		vo.setSessionId(98);
+		vo.setSessionId(39645);//98
 		vo.setBlSampleId(1);
-		vo.setSessionId(1);
+		//vo.setSessionId(1);
 		vo.setMessage("tests");
 		vo.setStatus("SUCCESS");
 		

@@ -230,7 +230,7 @@ public class TestAutoprocessingToolsWebService {
 		Float cellBeta = (float) 4.2;
 		Float cellGamma = (float) 4.3;
 		Calendar recordTimeStamp = Calendar.getInstance();
-		Integer dataCollectionId = 1;//19570;
+		Integer dataCollectionId = 19570;
 		Boolean anomalous = true;
 
 		// foreign key null
