@@ -297,7 +297,7 @@ public class TestAutoprocessingToolsWebService {
 		Integer autoProcProgramId = null;
 		String processingCommandLine = "processingCommandLine";
 		String processingPrograms = "processingPrograms";
-		Boolean processingStatus = true;
+		String processingStatus = "1";
 		String processingMessage = "processingMessage";
 		Calendar processingStartTime = Calendar.getInstance();
 		Calendar processingEndTime = Calendar.getInstance();

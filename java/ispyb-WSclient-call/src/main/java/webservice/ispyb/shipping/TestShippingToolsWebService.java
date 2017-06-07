@@ -46,7 +46,7 @@ public class TestShippingToolsWebService {
 			initWebService();
 			
 			 testFindProposal();
-
+			 testFindProposalsByLoginName();
 			 testFindPersonBySessionId();
 			 testFindPersonBySessionIdLocalContact();
 			 testFindProposalByCodeAndNumber();
@@ -158,6 +158,21 @@ public class TestShippingToolsWebService {
 
 		pv = ws.findProposal(code, number);
 		System.out.println("This is what I got as a response : proposalValue = " + proposalToString(pv) + "  \n");
+
+	}
+	
+	public static void testFindProposalsByLoginName() throws Exception {
+		System.out.println("*************** testFindProposalsByLoginName ***************");
+		String pv = null;
+		String login = "delageni";
+
+		pv = ws.findProposalsByLoginName(login);
+		System.out.println("This is what I got as a response : proposalValue = " + pv + "  \n");
+
+		login = "mx415";
+		
+		pv = ws.findProposalsByLoginName(login);
+		System.out.println("This is what I got as a response : proposalValue = " + pv + "  \n");
 
 	}
 
