@@ -384,8 +384,8 @@ public class TestBLSampleToolsWebService {
 		Integer ret = -1;
 
 		Integer blSubSampleId = null;
-		Integer diffractionPlanId = 1;//126818;
-		Integer sampleId = 1;//336887;
+		Integer diffractionPlanId = 126818;
+		Integer sampleId = 336887;
 		Integer positionId = 1;
 		Integer motorPositionId = null;
 		String blSubSampleUUID = "blSubSampleUUID";
@@ -416,7 +416,7 @@ public class TestBLSampleToolsWebService {
 	public static void testGetSampleInfo() throws Exception {
 		System.out.println("*************** testGetSampleInfo ***************");
 		SampleInfo sampleInfo = null;
-		Integer sampleId = 1;//445137;
+		Integer sampleId = 445137;
 		long start = System.currentTimeMillis();
 		sampleInfo = ws.getSampleInformation(sampleId);
 		if (sampleInfo != null) {
@@ -430,7 +430,7 @@ public class TestBLSampleToolsWebService {
 	public static void testFindBySpaceGroupShortName() throws Exception {
 		System.out.println("*************** testfindBySpaceGroupShortName ***************");
 		SampleInfo sampleInfo = null;
-		Integer sampleId = 1;//445137;
+		Integer sampleId = 445137;
 		long start = System.currentTimeMillis();
 		sampleInfo = ws.getSampleInformation(sampleId);
 		if (sampleInfo != null) {
