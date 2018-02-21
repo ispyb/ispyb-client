@@ -30,7 +30,7 @@ if __name__ == "__main__":
 	proposalNumber = config.get('Proposal', 'number')
 
 	# Creating the experiment
-	res = client.service.findSampleInfoLightForProposal(1170, "ID30A-3")
+	res = client.service.findSampleInfoLightForProposal(7, "ID29")
 
 	print(res)
 
