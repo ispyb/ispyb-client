@@ -38,11 +38,51 @@ if __name__ == "__main__":
 	# Proposal parameters
 	proposalCode = config.get('Proposal', 'type')
 	proposalNumber = config.get('Proposal', 'number')
-               
 
-        sampleAcronym = "ACRONYM"
-        imageDirectory = "/data/imageDirectory"
-        client.service.addMovie(proposalCode+proposalNumber, sampleAcronym, imageDirectory)
+        # This changes the grid               
+        proteinAcronym = "EMPROTEIN"
+        sampleAcronym = "EMPROTEIN_sample2"
+	# This changes the grid square 
+	movieDirectory = "/data/directory/" + sampleAcronym +"/grid2"
+
+        proposal = proposalCode + proposalNumber,
+	movieNumber = 1
+	movieFullPath = "/data/directory/" + str(movieNumber) + "/movie.mrc"
+	micrographFullPath = "/data/directory/" + str(movieNumber) + "/movie.mrc"
+	micrographSnapshotFullPath = "/data/directory/" + str(movieNumber) + "/movie.mrc"
+	xmlMetaDataFullPath = "/data/directory/" + str(movieNumber) + "/movie.xml"
+	voltage = 1
+	sphericalAberration = 2
+	amplitudeContrast = 3
+	magnification = 4
+	scannedPixelSize = 5
+	imagesCount = 28
+	dosePerImage = 5
+	positionX = 1
+	positionY = 1
+	beamlineName = "CM01"
+	gridSquareSnapshotFullPath = "/data/directory/1/movie.mrc"
+   
+        client.service.addMovie( proposal,
+                        proteinAcronym,
+			sampleAcronym,
+			movieDirectory,
+			movieFullPath,
+			movieNumber,
+			micrographFullPath,
+			micrographSnapshotFullPath,
+			xmlMetaDataFullPath,
+			voltage,
+			sphericalAberration,
+			amplitudeContrast,
+			magnification,
+			scannedPixelSize,
+			imagesCount,
+			dosePerImage,
+			positionX,
+			positionY,
+			beamlineName,
+			gridSquareSnapshotFullPath)
          
 
        
