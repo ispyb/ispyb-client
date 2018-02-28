@@ -49,8 +49,8 @@ public class TestCallSMISWebService {
 			//testCallSMIS();
 			//testFindMainProposersForProposal();
 			//testFindSessionsByBeamlineAndDates();
-			//testFindModifiedProposals();
-			testFindScientistsForProposal();
+			testFindModifiedProposals();
+			//testFindScientistsForProposal();
 
 		} catch (Exception e) {
 			System.err.println(e.toString());
@@ -107,8 +107,8 @@ public class TestCallSMISWebService {
 	
 	private static void testFindModifiedProposals() throws Exception {
 		System.out.println("*************** testfindSessionsByBeamlineAndDates ***************");
-		String date1="20/01/2016";
-		String date2="22/01/2016";
+		String date1="20/11/2017";
+		String date2="22/01/2018";
 		
 		List<Long>  pks = ws.findNewMXProposalPKs(date1, date2);
 		if (pks != null) {

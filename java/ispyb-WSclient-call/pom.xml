@@ -29,7 +29,7 @@
   	  	<dependency>
 			<groupId>ispyb</groupId>
 			<artifactId>ispyb-ejb3</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>5.4.3</version>
 			 <scope>provided</scope> 
 		</dependency>
 		

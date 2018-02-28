@@ -1,6 +1,7 @@
 package webservice.batch;
 
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -8,15 +9,16 @@ import java.util.Map;
 
 import javax.xml.ws.BindingProvider;
 
-import generated.ws.common.update.IspybWS;
-import generated.ws.mx.collection.SessionWS3VO;
+import generated.ws.common.batch.IspybWS;
+import generated.ws.common.batch.SessionWS3VO;
+import ispyb.common.util.beamlines.ESRFBeamlineEnum;
 import webservice.UtilsDoNotCommit;
 
 
 
 public class TestBatchWebService {
 	
-	private static BatchWebService wsPort;
+	private static generated.ws.common.batch.BatchWebService wsPort;
 
 	private static void initWebService() throws Exception {
 		// Get the services for ISPyB
@@ -40,7 +42,7 @@ public class TestBatchWebService {
 			initWebService();
 
 			testFindSessionsToProtect();
-			// testFindSessionsNotProtectedToProtect();
+			testFindSessionsNotProtectedToProtect();
 			// testProtectSession();
 			// testProtectNotProtectedSessions();
 
@@ -73,7 +75,24 @@ public class TestBatchWebService {
 			for (Iterator iterator = listSessionToBeProtected.iterator(); iterator
 					.hasNext();) {
 				SessionWS3VO s = (SessionWS3VO) iterator.next();
-				System.out.println("Session = " + sessionToString((s)) + "\n");
+
+				//String proposalAccount = s.getProposalVO().getCode() + s.getProposalVO().getNumber();
+				// beamline
+				ESRFBeamlineEnum abl = ESRFBeamlineEnum.retrieveBeamlineWithName(s.getBeamlineName());
+				String beamline = abl == null ? "" : abl.getDirectoryName();
+				String proposalAccount = s.getProposalName();
+				// directory
+				Date folderDate = s.getStartDate().getTime();
+				SimpleDateFormat dt = new SimpleDateFormat("yyyyMMdd");
+				String directory = "";
+				if (folderDate != null)
+					directory = dt.format(folderDate);
+
+				System.out.println("Session = " + s.getSessionId() + "proposal: " + proposalAccount
+						+ "  bl: " + beamline + "  dir: " +  directory + "\n");
+
+				
+				//System.out.println("Session = " + sessionToString((s)) + "\n");
 			}
 			System.out.println("This is what I got as a response :\n" + listSessionToBeProtected.toString() + listSessionToBeProtected);
 		} else
@@ -89,8 +108,20 @@ public class TestBatchWebService {
 					.hasNext();) {
 				SessionWS3VO s = (SessionWS3VO) iterator.next();
 				Date lastUpdate = s.getLastUpdate().getTime();
-				System.out.println("Session = " + s.getSessionId() + "  " + s.getBeamlineName()
-						+ "  " + lastUpdate + "\n");
+							
+				String proposalAccount = s.getProposalName();
+				// beamline
+				ESRFBeamlineEnum abl = ESRFBeamlineEnum.retrieveBeamlineWithName(s.getBeamlineName());
+				String beamline = abl == null ? "" : abl.getDirectoryName();
+				// directory
+				Date folderDate = s.getStartDate().getTime();
+				SimpleDateFormat dt = new SimpleDateFormat("yyyyMMdd");
+				String directory = "";
+				if (folderDate != null)
+					directory = dt.format(folderDate);
+
+				System.out.println("Session = " + s.getSessionId() + "  proposal: " + proposalAccount
+				+ "  bl: " + beamline + "  dir: " +  directory + "  lastUpdate: "+ lastUpdate + "\n");
 
 			}
 			System.out.println("This is what I got as a response :\n" + vos.toString() + vos);
