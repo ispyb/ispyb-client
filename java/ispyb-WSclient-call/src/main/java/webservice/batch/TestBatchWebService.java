@@ -2,6 +2,7 @@ package webservice.batch;
 
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -41,7 +42,7 @@ public class TestBatchWebService {
 
 			initWebService();
 
-			testFindSessionsToProtect();
+			//testFindSessionsToProtect();
 			testFindSessionsNotProtectedToProtect();
 			// testProtectSession();
 			// testProtectNotProtectedSessions();
@@ -101,7 +102,22 @@ public class TestBatchWebService {
 
 	private static void testFindSessionsNotProtectedToProtect() throws Exception {
 		System.out.println("*************** testFindSessionsToBeProtected ***************");
-		List<SessionWS3VO> vos = wsPort.findSessionsNotProtectedToBeProtected();
+		
+		SimpleDateFormat dt = new SimpleDateFormat("yyyyMMdd");
+		String date1Str = "20180101";
+		String date2Str = "20180228";
+		
+		Date date1 = dt.parse(date1Str);
+		Date date2 = dt.parse(date2Str);
+		
+		//int nbdays= 10;
+		//Date date1 = new Date (date2.getTime() - 1000*60*60*24*nbdays);
+		Calendar cal2 = Calendar.getInstance();
+		cal2.setTime(date2);
+		Calendar cal1 = Calendar.getInstance();
+		cal1.setTime(date1);
+
+		List<SessionWS3VO> vos = wsPort.findSessionsNotProtectedToBeProtectedByDates(cal1,cal2);
 		if (vos != null) {
 			System.out.println("Session[] length = " + vos.size() + "\n");
 			for (Iterator iterator = vos.iterator(); iterator
@@ -115,7 +131,6 @@ public class TestBatchWebService {
 				String beamline = abl == null ? "" : abl.getDirectoryName();
 				// directory
 				Date folderDate = s.getStartDate().getTime();
-				SimpleDateFormat dt = new SimpleDateFormat("yyyyMMdd");
 				String directory = "";
 				if (folderDate != null)
 					directory = dt.format(folderDate);
