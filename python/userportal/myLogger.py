@@ -5,7 +5,7 @@ def printConfiguration(proposal, password, url):
 	print("\n\n-------------------")
 	print("Configuration Values")
 	print("-------------------")
-	print("proposal   %s" % str(proposal))
+	print("proposal/user   %s" % str(proposal))
 	print("password   %s" % str(password))
 	print("URL        %s\n" % str(url))
 
