@@ -1,6 +1,6 @@
 *pyc
 python/biosaxs/credentials.properties
-
+credentials.properties
 *target*
 # *.jar
 *.war
