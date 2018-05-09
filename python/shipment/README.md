@@ -13,4 +13,9 @@ createShipment.py creates a shipment with dewars, containers, and samples.
 user=mx415	
 password=password
 site=ESRF
+
+[Proposal]
+type=mx
+number=415
+
 ```

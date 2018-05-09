@@ -1,0 +1,62 @@
+{
+  "shippingName": "Example Shipment",
+  "comments": "This si a test from ispyb-client",
+  "shippingType":"DewarTracking",
+  "dewarVOs": [
+    {
+      "code": "Dewar2",
+      "type": "Dewar",
+      "barcode" : "whatever",
+      "containerVOs": [
+        {
+          "containerType": "Puck",
+	  "code": "CA088A",	
+          "sampleVOs": [
+            {
+	      "blSubSampleVOs": [{
+		
+
+	      }],
+	      "diffractionPlanVO": {
+			"experimentKind" : "SAD",
+			"observedResolution" : 12.5,
+			"minimalResolution" : 10,
+			"requiredResolution" : 11,
+			"comments": "This is a new comment"
+	      },
+              "crystalVO": {
+		"diffractionPlanVO": {
+			"experimentKind" : "MAD",
+			"observedResolution" : 1,
+			"minimalResolution" : 2,
+			"requiredResolution" : 3,
+			"comments": "This is a new comment"
+	        },
+                "proteinVO": {
+                  "acronym": "F1"
+                },
+                "name": "TFA-21_CD003054_E7-1_S",
+		"spaceGroup": "P65",
+		"cellA": 1.1,
+		"cellB": 2,
+		"cellC": 3,
+		"cellAlpha": 4,
+		"cellBeta": 5,
+		"cellGamma": 6,
+		"comments": "test"
+		
+              },
+              "name": "sampleName2",
+              "code": "sampleCode2",
+	      "holderLength": "22",
+	      "loopType": "Other",
+	      "location": 1,
+	      "wireWith": 20,
+	      "comments": "Hello there"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
