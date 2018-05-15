@@ -51,6 +51,7 @@ public class TestCallSMISWebService {
 			//testFindSessionsByBeamlineAndDates();
 			testFindModifiedProposals();
 			//testFindScientistsForProposal();
+			//testPersonsForProposal();
 
 		} catch (Exception e) {
 			System.err.println(e.toString());
@@ -106,9 +107,9 @@ public class TestCallSMISWebService {
 	}
 	
 	private static void testFindModifiedProposals() throws Exception {
-		System.out.println("*************** testfindSessionsByBeamlineAndDates ***************");
-		String date1="20/11/2017";
-		String date2="22/01/2018";
+		System.out.println("*************** testFindModifiedProposals ***************");
+		String date1="01/01/2018";
+		String date2="30/04/2018";
 		
 		List<Long>  pks = ws.findNewMXProposalPKs(date1, date2);
 		if (pks != null) {
@@ -189,6 +190,42 @@ public class TestCallSMISWebService {
 
 		System.out.println();
 		System.out.println("------");
+	}
+
+	private static void testPersonsForProposal() throws Exception {
+		System.out.println("*************** testPersonsForProposal ***************");
+		//Long pk =new Long(1170); //MX415
+		//Long pk =new Long(31529);//mx415
+		//Long pk =new Long(57256); //MX1752
+		Long pk =new Long(82054);//IH-HC-3376
+		
+		
+		List<ExpSessionInfoLightVO> vos  = ws.findSessionsInfoLightForProposalPk(pk);
+		System.out.println("Proposal sessions length = " + vos.size() + "\n");
+
+		for (Iterator iterator = vos.iterator(); iterator.hasNext();) {
+			ExpSessionInfoLightVO expSessionInfoLightVO = (ExpSessionInfoLightVO) iterator.next();
+			List<ProposalParticipantInfoLightVO> pvos = ws.findUsersByExpSession(expSessionInfoLightVO.getPk());
+			System.out.println("session pk = " + expSessionInfoLightVO.getPk() + "\n");
+			
+			if (pvos != null) {
+				System.out.println("Proposal persons length = " + pvos.size() + "\n");
+				int i=0;
+				for (Iterator<ProposalParticipantInfoLightVO> iterator2 = pvos.iterator(); iterator2.hasNext();) {
+					ProposalParticipantInfoLightVO pVO = (ProposalParticipantInfoLightVO) iterator2.next();
+					System.out.println("ProposalParticipantInfoLightVO[" + i + "] = " + pVO.getScientistName() + "   " + pVO.getScientistFirstName()
+							+ "   mp:" + pVO.isMainProposer() + "   proposer:" + pVO.isProposer()+ "   user:" + pVO.isUser()+"\n");
+					i=i+1;
+				}
+			}				
+			else {
+					System.out.println("No persons found\n" );
+				
+			}
+						
+			System.out.println();
+			System.out.println("------");
+		}
 	}
 
 

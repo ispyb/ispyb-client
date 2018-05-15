@@ -1,17 +1,14 @@
 package webservice.ispyb.shipping;
 
-import generated.ws.mx.shipping.IspybWS;
-import generated.ws.mx.shipping.Laboratory3VO;
-import generated.ws.mx.shipping.PersonWS3VO;
-import generated.ws.mx.shipping.ProposalWS3VO;
-
-import java.net.URL;
 import java.util.Map;
 
 import javax.xml.ws.BindingProvider;
 
+import generated.ws.mx.shipping.IspybWS;
+import generated.ws.mx.shipping.Laboratory3VO;
+import generated.ws.mx.shipping.PersonWS3VO;
+import generated.ws.mx.shipping.ProposalWS3VO;
 import webservice.UtilsDoNotCommit;
-import webservice.ispyb.TestWebServiceUtils;
 
 public class TestShippingToolsWebService {
 
@@ -52,8 +49,9 @@ public class TestShippingToolsWebService {
 			// testFindProposalByCodeAndNumber();
 			 //testFindPersonByCodeAndNumber();
 			 //testFindLaboratoryByCodeAndNumber();
-			 testFindPersonByProposal();
+			 //testFindPersonByProposal();
 			 //testFindLaboratoryByProposal();
+			 testFindShipping();
 
 		} catch (Exception e) {
 			System.err.println(e.toString());
@@ -148,12 +146,12 @@ public class TestShippingToolsWebService {
 		System.out.println("*************** testFindProposal ***************");
 		ProposalWS3VO pv = null;
 		String code = "MX";
+		String number = "415";
 
 		pv = ws.findProposal(code, number);
 		System.out.println("This is what I got as a response : proposalValue = " + proposalToString(pv) + "  \n");
 
 		code = "mx";
-		String number = "415";
 
 		pv = ws.findProposal(code, number);
 		System.out.println("This is what I got as a response : proposalValue = " + proposalToString(pv) + "  \n");
@@ -214,5 +212,16 @@ public class TestShippingToolsWebService {
 		lv = ws.findLaboratoryByProposal(code, number);
 		return lv;
 	}
+	
+	private static void testFindShipping() throws Exception {
+		System.out.println("*************** testFindShipping ***************");
+		
+		Integer shipId = 310127;
+		//TODO understand why an error when a subsample is linked
+		String ret = ws.findShippingById(shipId);
+		System.out.println("This is what I got as a response : shippingFull = " + ret + "  \n");
+	}
+		
+
 
 }
