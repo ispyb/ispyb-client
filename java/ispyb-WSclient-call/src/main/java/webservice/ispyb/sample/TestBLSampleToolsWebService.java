@@ -100,13 +100,14 @@ public class TestBLSampleToolsWebService {
 		Double radiationSensitivityBeta = 0.0003;
 		Double radiationSensitivityGamma = 0.0004;
 		Double minOscWidth = 0.5;
+		Double axisRange = 10.0;
 	
 		ret = ws.storeOrUpdateDiffractionPlan(diffractionPlanId, experimentKind, observedResolution, minimalResolution,
 				exposureTime, oscillationRange, maximalResolution, screeningResolution, radiationSensitivity, anomalousScatterer,
 				preferredBeamSizeX, preferredBeamSizeY, preferredBeamDiameter,comments, aimedCompleteness, aimedIOverSigmaAtHighestRes, aimedMultiplicity,
 				aimedResolution, anomalousData, complexity, estimateRadiationDamage, forcedSpaceGroup, requiredCompleteness,
 				requiredMultiplicity, requiredResolution, strategyOption, kappaStrategyOption, numberOfPositions, minDimAccrossSpindleAxis, 
-				maxDimAccrossSpindleAxis, radiationSensitivityBeta, radiationSensitivityGamma, minOscWidth);
+				maxDimAccrossSpindleAxis, radiationSensitivityBeta, radiationSensitivityGamma, minOscWidth, axisRange);
 		System.out.println("This is what I got as a response : diffractionPlanId = " + ret + "  \n");
 	}
 
@@ -147,6 +148,7 @@ public class TestBLSampleToolsWebService {
 		Double radiationSensitivityBeta = 0.0003;
 		Double radiationSensitivityGamma = 0.0004;
 		Double minOscWidth = 0.5;
+		Double axisRange = 10.0;
 
 		ret = ws.storeOrUpdateDiffractionPlan(diffractionPlanId, experimentKind, observedResolution,
 				minimalResolution, exposureTime, oscillationRange, maximalResolution, screeningResolution, radiationSensitivity,
@@ -154,7 +156,8 @@ public class TestBLSampleToolsWebService {
 				aimedMultiplicity, aimedResolution, anomalousData, complexity, estimateRadiationDamage, forcedSpaceGroup,
 				requiredCompleteness, requiredMultiplicity, requiredResolution, strategyOption, kappaStrategyOption,
 				numberOfPositions, minDimAccrossSpindleAxis, maxDimAccrossSpindleAxis, radiationSensitivityBeta,
-				radiationSensitivityGamma, minOscWidth);
+				radiationSensitivityGamma, minOscWidth, axisRange);
+		
 		System.out.println("This is what I got as a response : diffractionPlanId = " + ret + "  \n");
 	}
 
@@ -390,7 +393,6 @@ public class TestBLSampleToolsWebService {
 		Integer diffractionPlanId = 3559;
 		Integer sampleId = 3119;
 		Integer positionId = 1;
-		Integer motorPositionId = null;
 		String blSubSampleUUID = "blSubSampleUUID";
 		String imgFileName = "imgFileName";
 		String imgFilePath = "imgFilePath";

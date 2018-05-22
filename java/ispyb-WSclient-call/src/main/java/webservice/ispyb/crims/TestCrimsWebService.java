@@ -1,28 +1,22 @@
 package webservice.ispyb.crims;
 
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 import javax.xml.ws.BindingProvider;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import generated.ws.mx.shipping.BlSubSample3VO;
-import generated.ws.mx.shipping.Position3VO;
 import generated.ws.mx.crims.CrimsWebService;
 import generated.ws.mx.crims.IspybWS;
-import generated.ws.mx.shipping.BlSample3VO;
-import generated.ws.mx.shipping.Container3VO;
-import generated.ws.mx.shipping.Dewar3VO;
-import generated.ws.mx.shipping.Shipping3VO;
+import generated.ws.mx.shipping.BlSubSample3VO;
+import generated.ws.mx.shipping.Position3VO;
 import webservice.UtilsDoNotCommit;
 
 public class TestCrimsWebService {
-
-	protected static IspybWS iws;
-	protected static CrimsWebService ws;
+	
+	protected static generated.ws.mx.crims.IspybWS iws;
+	protected static generated.ws.mx.crims.CrimsWebService ws;
 
 	public TestCrimsWebService() throws Exception {
 		super();
@@ -31,7 +25,7 @@ public class TestCrimsWebService {
 
 	private static void initWebService() throws Exception {
 		
-		iws = new IspybWS();	
+		IspybWS iws = new IspybWS();	
 
 		System.out.println("-----------------------------------------------------------");
 
@@ -48,17 +42,17 @@ public class TestCrimsWebService {
 
 	public static void main(String args[]) {
 		try {
-			System.out.println("*************** testShippingWebServices ***************");
+			System.out.println("*************** testCrimsWebServices ***************");
 			initWebService();
-			
+			//testGetDCFromShippingId();
 			//testStoreShipping();
+			testFindProteinAcronymsForProposal();
 
 		} catch (Exception e) {
 			System.err.println(e.toString());
 			e.printStackTrace();
 		}
 	}
-
 
 	private static void testStoreShipping() throws Exception {
 		System.out.println("*************** testStoreShipping for CRIMS ***************");
@@ -102,6 +96,23 @@ public class TestCrimsWebService {
 		String ret = ws.storeShippingFull(propcode, propnumber, shippingFull);//storeShipping(shipping);
 		System.out.println("This is what I got as a response : shippingFull = " + ret + "  \n");
 
+	}
+	
+	private static void testGetDCFromShippingId() throws Exception {
+		System.out.println("*************** testGetDCFromShippingId for CRIMS ***************");
+		
+		String shippingId= "310127";		
+		
+		String ret = ws.getDataCollectionFromShippingId(shippingId);//storeShipping(shipping);
+		System.out.println("This is what I got as a response : datacollections = " + ret + "  \n");
+
+	}
+	
+	private static void testFindProteinAcronymsForProposal() throws Exception {
+		System.out.println("*************** testFindProteinAcronymsForProposal for CRIMS ***************");
+		
+		String ret = ws.findProteinAcronymsForProposal("mx", "415");
+		System.out.println("This is what I got as a response : proteins = " + ret + "  \n");
 	}
 	
 	private static Gson getGson(){
