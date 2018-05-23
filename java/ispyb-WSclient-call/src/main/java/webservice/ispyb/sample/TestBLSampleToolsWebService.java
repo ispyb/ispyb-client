@@ -1,5 +1,12 @@
 package webservice.ispyb.sample;
 
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import javax.xml.ws.BindingProvider;
+
+import generated.ws.mx.blsample.BlSampleImageWS3VO;
 import generated.ws.mx.blsample.BlSampleWS3VO;
 import generated.ws.mx.blsample.BlSubSampleWS3VO;
 import generated.ws.mx.blsample.Container3VO;
@@ -8,14 +15,6 @@ import generated.ws.mx.blsample.DiffractionPlanWS3VO;
 import generated.ws.mx.blsample.IspybWS;
 import generated.ws.mx.blsample.Protein3VO;
 import generated.ws.mx.blsample.SampleInfo;
-
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import javax.jws.WebParam;
-import javax.xml.ws.BindingProvider;
-
 import webservice.UtilsDoNotCommit;
 
 public class TestBLSampleToolsWebService {
@@ -46,16 +45,17 @@ public class TestBLSampleToolsWebService {
 			System.out.println("*************** testBLSampleWebServices ***************");
 			initWebService();
 
-			 testStoreOrUpdateDiffractionPlan();
-			 testStoreOrUpdateDiffractionPlanNew();
-			 testFindBLSample();
-			 testStoreOrUpdateBLSample();
+			// testStoreOrUpdateDiffractionPlan();
+//			 testStoreOrUpdateDiffractionPlanNew();
+//			 testFindBLSample();
+//			 testStoreOrUpdateBLSample();
 			 testFindSampleInfoLightForProposal();
-			 testFindSampleInfoLightForProposalCodeAndNumber();
-			 testGetPdbFilePath();
-			 testFindProteinAcronymsForProposal();
+//			 testFindSampleInfoLightForProposalCodeAndNumber();
+//			 testGetPdbFilePath();
+//			 testFindProteinAcronymsForProposal();
 			 testStoreOrUpdateBLSubSample();
-			 testGetSampleInfo();
+//			 testGetSampleInfo();
+//			 testStoreOrUpdateBLSampleImage();
 		} catch (Exception e) {
 			System.err.println(e.toString());
 			e.printStackTrace();
@@ -100,13 +100,14 @@ public class TestBLSampleToolsWebService {
 		Double radiationSensitivityBeta = 0.0003;
 		Double radiationSensitivityGamma = 0.0004;
 		Double minOscWidth = 0.5;
+		Double axisRange = 10.0;
 	
 		ret = ws.storeOrUpdateDiffractionPlan(diffractionPlanId, experimentKind, observedResolution, minimalResolution,
 				exposureTime, oscillationRange, maximalResolution, screeningResolution, radiationSensitivity, anomalousScatterer,
 				preferredBeamSizeX, preferredBeamSizeY, preferredBeamDiameter,comments, aimedCompleteness, aimedIOverSigmaAtHighestRes, aimedMultiplicity,
 				aimedResolution, anomalousData, complexity, estimateRadiationDamage, forcedSpaceGroup, requiredCompleteness,
 				requiredMultiplicity, requiredResolution, strategyOption, kappaStrategyOption, numberOfPositions, minDimAccrossSpindleAxis, 
-				maxDimAccrossSpindleAxis, radiationSensitivityBeta, radiationSensitivityGamma, minOscWidth);
+				maxDimAccrossSpindleAxis, radiationSensitivityBeta, radiationSensitivityGamma, minOscWidth, axisRange);
 		System.out.println("This is what I got as a response : diffractionPlanId = " + ret + "  \n");
 	}
 
@@ -147,6 +148,7 @@ public class TestBLSampleToolsWebService {
 		Double radiationSensitivityBeta = 0.0003;
 		Double radiationSensitivityGamma = 0.0004;
 		Double minOscWidth = 0.5;
+		Double axisRange = 10.0;
 
 		ret = ws.storeOrUpdateDiffractionPlan(diffractionPlanId, experimentKind, observedResolution,
 				minimalResolution, exposureTime, oscillationRange, maximalResolution, screeningResolution, radiationSensitivity,
@@ -154,14 +156,15 @@ public class TestBLSampleToolsWebService {
 				aimedMultiplicity, aimedResolution, anomalousData, complexity, estimateRadiationDamage, forcedSpaceGroup,
 				requiredCompleteness, requiredMultiplicity, requiredResolution, strategyOption, kappaStrategyOption,
 				numberOfPositions, minDimAccrossSpindleAxis, maxDimAccrossSpindleAxis, radiationSensitivityBeta,
-				radiationSensitivityGamma, minOscWidth);
+				radiationSensitivityGamma, minOscWidth, axisRange);
+		
 		System.out.println("This is what I got as a response : diffractionPlanId = " + ret + "  \n");
 	}
 
 	private static void testFindBLSample() throws Exception {
 		System.out.println("*************** testFindBLSample ***************");
 		BlSampleWS3VO blSample = null;
-		Integer blSampleId = 1;//398649;
+		Integer blSampleId = 301005;//398649;
 
 		blSample = ws.findBLSample(blSampleId);
 		System.out.println("This is what I got as a response : BLSampleValue = " + (blSampleToString(blSample)) + "  \n");
@@ -185,11 +188,13 @@ public class TestBLSampleToolsWebService {
 			return "null";
 		StringBuffer str = new StringBuffer("{");
 
-		str.append("blSample=" + info.getSampleId() + ", name= " + info.getSampleName() + ", location= " + info.getSampleLocation()
+		str.append("blSample=" + info.getSampleId() + ", name= " + info.getSampleName() + ", location= " + info.getSampleLocation() + ", code= " + info.getCode()
 				+ ", smiles =  " + info.getSmiles() + "\n" + "crystal= " + info.getCrystalSpaceGroup() + ", cellA = "
 				+ info.getCellA() + ", cellGamma = " + info.getCellGamma() + "\n" + "protein= " + info.getProteinAcronym() + "\n"
 				+ "diffractionPlan= " + diffractionPlanToString(info.getDiffractionPlan()) + "\n" + "experimentType= "
-				+ info.getExperimentType() + "\n" + "container= " + info.getContainerSampleChangerLocation());
+				+ info.getExperimentType() + "\n" + "containerLocation= " + info.getContainerSampleChangerLocation() 
+				+ ", containerCode= " + info.getContainerCode()
+				+ ", imageFullPath= " + info.getBlsampleImagePath());
 		str.append('}');
 
 		return (str.toString());
@@ -320,6 +325,7 @@ public class TestBLSampleToolsWebService {
 			System.out.println("This is what I got as a response : NULL \n");
 		long end = System.currentTimeMillis();
 		System.out.println("testFindSampleInfoLightForProposal in " + (end - start) + " ms.");
+		
 	}
 
 	public static void testFindSampleInfoLightForProposalCodeAndNumber() throws Exception {
@@ -384,10 +390,9 @@ public class TestBLSampleToolsWebService {
 		Integer ret = -1;
 
 		Integer blSubSampleId = null;
-		Integer diffractionPlanId = 126818;
-		Integer sampleId = 336887;
+		Integer diffractionPlanId = 3559;
+		Integer sampleId = 3119;
 		Integer positionId = 1;
-		Integer motorPositionId = null;
 		String blSubSampleUUID = "blSubSampleUUID";
 		String imgFileName = "imgFileName";
 		String imgFilePath = "imgFilePath";
@@ -439,6 +444,41 @@ public class TestBLSampleToolsWebService {
 			System.out.println("This is what I got as a response : NULL \n");
 		long end = System.currentTimeMillis();
 		System.out.println("testGetSampleInfo in " + (end - start) + " ms.");
+	}
+
+	private static void testStoreOrUpdateBLSampleImage() throws Exception {
+		System.out.println("*************** testStoreOrUpdateBLSampleImage ***************");
+		Integer ret = -1;
+		
+		// update
+		Integer blSampleId = 301005;
+		Integer blSampleImageId = 1;
+		String comments = "test for sd";
+		String imagepath = "imagePath for test";
+	
+		BlSampleImageWS3VO blSampleImage = new BlSampleImageWS3VO();
+		blSampleImage.setBlSampleId(blSampleId);
+		blSampleImage.setComments(comments);
+		blSampleImage.setBlSampleImageId(blSampleImageId);
+		blSampleImage.setImageFullPath(imagepath);
+	
+		ret = ws.storeOrUpdateBLSampleImage(blSampleImage);
+		System.out.println("This is what I got as a response : blSampleImageId = " + ret + "  \n");
+
+		// create 
+		blSampleId = 301005;
+		comments = "test for sd2";
+		imagepath = "imagePath for test 2";
+		blSampleImageId = null;
+	
+		blSampleImage = new BlSampleImageWS3VO();
+		blSampleImage.setBlSampleId(blSampleId);
+		blSampleImage.setComments(comments);
+		blSampleImage.setImageFullPath(imagepath);
+	
+		ret = ws.storeOrUpdateBLSampleImage(blSampleImage);
+		System.out.println("C This is what I got as a response : blSampleImageId = " + ret + "  \n");
+
 	}
 
 }

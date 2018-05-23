@@ -1,17 +1,14 @@
 package webservice.ispyb.shipping;
 
-import generated.ws.mx.shipping.IspybWS;
-import generated.ws.mx.shipping.Laboratory3VO;
-import generated.ws.mx.shipping.PersonWS3VO;
-import generated.ws.mx.shipping.ProposalWS3VO;
-
-import java.net.URL;
 import java.util.Map;
 
 import javax.xml.ws.BindingProvider;
 
+import generated.ws.mx.shipping.IspybWS;
+import generated.ws.mx.shipping.Laboratory3VO;
+import generated.ws.mx.shipping.PersonWS3VO;
+import generated.ws.mx.shipping.ProposalWS3VO;
 import webservice.UtilsDoNotCommit;
-import webservice.ispyb.TestWebServiceUtils;
 
 public class TestShippingToolsWebService {
 
@@ -45,15 +42,16 @@ public class TestShippingToolsWebService {
 			System.out.println("*************** testShippingWebServices ***************");
 			initWebService();
 			
-			 testFindProposal();
-			 testFindProposalsByLoginName();
-			 testFindPersonBySessionId();
-			 testFindPersonBySessionIdLocalContact();
-			 testFindProposalByCodeAndNumber();
-			 testFindPersonByCodeAndNumber();
-			 testFindLaboratoryByCodeAndNumber();
-			 testFindPersonByProposal();
-			 testFindLaboratoryByProposal();
+			// testFindProposal();
+			// testFindProposalsByLoginName();
+			// testFindPersonBySessionId();
+			// testFindPersonBySessionIdLocalContact();
+			// testFindProposalByCodeAndNumber();
+			 //testFindPersonByCodeAndNumber();
+			 //testFindLaboratoryByCodeAndNumber();
+			 //testFindPersonByProposal();
+			 //testFindLaboratoryByProposal();
+			 testFindShipping();
 
 		} catch (Exception e) {
 			System.err.println(e.toString());
@@ -117,8 +115,8 @@ public class TestShippingToolsWebService {
 	public static void testFindProposalByCodeAndNumber() throws Exception {
 		System.out.println("*************** testFindProposalByCodeAndNumber ***************");
 		ProposalWS3VO pv = null;
-		String code = "FX";
-		Integer number = 1;
+		String code = "MX";
+		Integer number = 2020;
 
 		pv = ws.findProposalByCodeAndNumber(code, number);
 		System.out.println("This is what I got as a response : proposalValue = " + proposalToString(pv) + "  \n");
@@ -127,8 +125,8 @@ public class TestShippingToolsWebService {
 	private static void testFindPersonByCodeAndNumber() throws Exception {
 		System.out.println("*************** testFindPersonByCodeAndNumber ***************");
 		PersonWS3VO pv = null;
-		String code = "fx";
-		Integer number = 1;
+		String code = "MX";
+		Integer number = 2020;
 
 		pv = ws.findPersonByCodeAndNumber(code, number);
 		System.out.println("This is what I got as a response : personValue = " + personToString(pv) + "  \n");
@@ -137,8 +135,8 @@ public class TestShippingToolsWebService {
 	private static void testFindLaboratoryByCodeAndNumber() throws Exception {
 		System.out.println("*************** testFindLaboratoryByCodeAndNumber ***************");
 		Laboratory3VO lv = null;
-		String code = "fx";
-		Integer number = 1;
+		String code = "MX";
+		Integer number = 2020;
 
 		lv = ws.findLaboratoryByCodeAndNumber(code, number);
 		System.out.println("This is what I got as a response : laboratoryValue = " + laboratoryToString(lv) + "  \n");
@@ -147,14 +145,13 @@ public class TestShippingToolsWebService {
 	public static void testFindProposal() throws Exception {
 		System.out.println("*************** testFindProposal ***************");
 		ProposalWS3VO pv = null;
-		String code = "opid";
-		String number = "30B";
+		String code = "MX";
+		String number = "415";
 
 		pv = ws.findProposal(code, number);
 		System.out.println("This is what I got as a response : proposalValue = " + proposalToString(pv) + "  \n");
 
 		code = "mx";
-		number = "415";
 
 		pv = ws.findProposal(code, number);
 		System.out.println("This is what I got as a response : proposalValue = " + proposalToString(pv) + "  \n");
@@ -179,8 +176,8 @@ public class TestShippingToolsWebService {
 	private static void testFindPersonByProposal() throws Exception {
 		System.out.println("*************** testFindPersonByProposal ***************");
 		PersonWS3VO pv = null;
-		String code = "OPID";
-		String number = "30b";
+		String code = "MX";
+		String number = "2020";
 
 		pv = ws.findPersonByProposal(code, number);
 		System.out.println("This is what I got as a response : personValue = " + personToString(pv) + "  \n");
@@ -215,5 +212,16 @@ public class TestShippingToolsWebService {
 		lv = ws.findLaboratoryByProposal(code, number);
 		return lv;
 	}
+	
+	private static void testFindShipping() throws Exception {
+		System.out.println("*************** testFindShipping ***************");
+		
+		Integer shipId = 310127;
+		//TODO understand why an error when a subsample is linked
+		String ret = ws.findShippingById(shipId);
+		System.out.println("This is what I got as a response : shippingFull = " + ret + "  \n");
+	}
+		
+
 
 }
