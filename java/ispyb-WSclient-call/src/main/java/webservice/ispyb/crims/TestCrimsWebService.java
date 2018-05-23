@@ -33,8 +33,10 @@ public class TestCrimsWebService {
 		BindingProvider bindingProvider = (BindingProvider)ws;
 		Map requestContext = bindingProvider.getRequestContext();
 		
-		requestContext.put(BindingProvider.USERNAME_PROPERTY, UtilsDoNotCommit.ISPYBU);
-		requestContext.put(BindingProvider.PASSWORD_PROPERTY, UtilsDoNotCommit.ISPYBP);
+		//requestContext.put(BindingProvider.USERNAME_PROPERTY, UtilsDoNotCommit.ISPYBU);
+		//requestContext.put(BindingProvider.PASSWORD_PROPERTY, UtilsDoNotCommit.ISPYBP);
+		requestContext.put(BindingProvider.USERNAME_PROPERTY, "mx415");
+		requestContext.put(BindingProvider.PASSWORD_PROPERTY, UtilsDoNotCommit.mx415p);
 
 		//ws.setTimeout(3 * 1000);// 15
 
@@ -46,7 +48,8 @@ public class TestCrimsWebService {
 			initWebService();
 			//testGetDCFromShippingId();
 			//testStoreShipping();
-			testFindProteinAcronymsForProposal();
+			//testFindProteinAcronymsForProposal();
+			testFindProteinAcronyms();
 
 		} catch (Exception e) {
 			System.err.println(e.toString());
@@ -114,6 +117,14 @@ public class TestCrimsWebService {
 		String ret = ws.findProteinAcronymsForProposal("mx", "415");
 		System.out.println("This is what I got as a response : proteins = " + ret + "  \n");
 	}
+
+	private static void testFindProteinAcronyms() throws Exception {
+		System.out.println("*************** testFindProteinAcronyms for CRIMS ***************");
+		
+		String ret = ws.findProteinAcronyms();
+		System.out.println("This is what I got as a response : proteins = " + ret + "  \n");
+	}
+	
 	
 	private static Gson getGson(){
 		return new GsonBuilder().serializeNulls().create();
