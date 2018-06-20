@@ -31,3 +31,24 @@ python createShipment.py
 ### Result
 
 This web method will return the shipment created in the database.
+
+### Data
+
+A session is needed to get the labels.
+
+#### Shipment 
+
+```
+shippingSTatus = [opened, closed, at_ESRF, sent to ESRF, sent to User]
+```
+
+#### Container
+```
+containerType = [Unipuck, Spinepuck, PLATE]
+capacity=[16, 10]
+```
+
+#### BLSample
+```
+location = [1...max container capacity]
+```
