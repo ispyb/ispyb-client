@@ -50,7 +50,7 @@ public class TestCallSMISWebService {
 			//testFindMainProposersForProposal();
 			//testFindSessionsByBeamlineAndDates();
 			testFindModifiedProposals();
-			//testFindScientistsForProposal();
+			testFindScientistsForProposal();
 			//testPersonsForProposal();
 
 		} catch (Exception e) {

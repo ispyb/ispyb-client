@@ -2,6 +2,7 @@ package webservice.ispyb.shipping;
 
 import java.util.Map;
 
+import javax.jws.WebParam;
 import javax.xml.ws.BindingProvider;
 
 import generated.ws.mx.shipping.IspybWS;
@@ -30,8 +31,10 @@ public class TestShippingToolsWebService {
 		BindingProvider bindingProvider = (BindingProvider)ws;
 		Map requestContext = bindingProvider.getRequestContext();
 		
-		requestContext.put(BindingProvider.USERNAME_PROPERTY, UtilsDoNotCommit.ISPYBU);
-		requestContext.put(BindingProvider.PASSWORD_PROPERTY, UtilsDoNotCommit.ISPYBP);
+		//requestContext.put(BindingProvider.USERNAME_PROPERTY, UtilsDoNotCommit.ISPYBU);
+		//requestContext.put(BindingProvider.PASSWORD_PROPERTY, UtilsDoNotCommit.ISPYBP);
+		requestContext.put(BindingProvider.USERNAME_PROPERTY, "mx415");
+		requestContext.put(BindingProvider.PASSWORD_PROPERTY, UtilsDoNotCommit.mx415p);
 
 		//ws.setTimeout(3 * 1000);// 15
 
@@ -216,12 +219,15 @@ public class TestShippingToolsWebService {
 	private static void testFindShipping() throws Exception {
 		System.out.println("*************** testFindShipping ***************");
 		
-		Integer shipId = 310127;
+		Integer shipId = 309208; //310127;
+		String withDewars = "false";
+		String withContainers = "false";
+		String withSamples = "false";
+		String withSubSamples= "false";
+		
+		// blsampleId=663570
 		//TODO understand why an error when a subsample is linked
-		String ret = ws.findShippingById(shipId);
+		String ret = ws.findShippingById(shipId, withDewars, withContainers, withSamples, withSubSamples);
 		System.out.println("This is what I got as a response : shippingFull = " + ret + "  \n");
 	}
-		
-
-
 }
