@@ -1,0 +1,355 @@
+{
+	"shippingName": "peter_test_CRIMSv3",
+	"shippingType": "DewarTracking",
+	"shippingStatus": "at EMBL",
+	"dewarVOs": [{
+		"code": "Dewar_1",
+		"type": "Dewar",
+		"containerVOs": [{
+			"containerType": "SPINE Puck",
+			"code": "AB128A",
+			"capacity": 10,
+			"sampleVOs": [{
+				"name": "CD022381_C07-1",
+				"code": "",
+				"holderLength": "22",
+				"loopType": "Other",
+				"location": "1",
+				"wireWith": 20,
+				"comments": "Pin type is SPINE",
+				"SMILES": "",
+				"diffractionPlanVO": {
+					"numberOfPositions": 1,
+					"observedResolution": 0,
+					"requiredResolution": 0,
+					"preferredBeamSizeX": 0,
+					"preferredBeamSizeY": 0,
+					"experimentKind": 0,
+					"requiredCompleteness": 0,
+					"requiredSensitivity": 0,
+					"requiredMultipicity": 0
+				},
+				"crystalVO": {
+					"crystalUUID": "a7fc47b6-db5b-4f4e-94ec-54a471c8c6eb",
+					"spaceGroup": "unknown",
+					"cellA": null,
+					"cellB": null,
+					"cellC": null,
+					"cellAlpha": null,
+					"cellBeta": null,
+					"cellGamma": null,
+					"proteinVO": {
+						"acronym": "Lyso",
+						"name": "Lysozyme"
+					}
+				}
+			}, {
+				"name": "CD022381_E03-2",
+				"code": "",
+				"holderLength": "22",
+				"loopType": "Other",
+				"location": "10",
+				"wireWith": 20,
+				"comments": "Pin type is SPINE",
+				"SMILES": "",
+				"diffractionPlanVO": {
+					"numberOfPositions": 1,
+					"observedResolution": 0,
+					"requiredResolution": 0,
+					"preferredBeamSizeX": 0,
+					"preferredBeamSizeY": 0,
+					"experimentKind": 0,
+					"requiredCompleteness": 0,
+					"requiredSensitivity": 0,
+					"requiredMultipicity": 0
+				},
+				"crystalVO": {
+					"crystalUUID": "9aa598fd-cd45-4b50-a8f7-5facfe82729f",
+					"spaceGroup": "unknown",
+					"cellA": null,
+					"cellB": null,
+					"cellC": null,
+					"cellAlpha": null,
+					"cellBeta": null,
+					"cellGamma": null,
+					"proteinVO": {
+						"acronym": "Lyso",
+						"name": "Lysozyme"
+					}
+				}
+			}, {
+				"name": "CD022381_C07-3",
+				"code": "",
+				"holderLength": "22",
+				"loopType": "Other",
+				"location": "2",
+				"wireWith": 20,
+				"comments": "Pin type is SPINE",
+				"SMILES": "",
+				"diffractionPlanVO": {
+					"numberOfPositions": 1,
+					"observedResolution": 0,
+					"requiredResolution": 0,
+					"preferredBeamSizeX": 0,
+					"preferredBeamSizeY": 0,
+					"experimentKind": 0,
+					"requiredCompleteness": 0,
+					"requiredSensitivity": 0,
+					"requiredMultipicity": 0
+				},
+				"crystalVO": {
+					"crystalUUID": "234180ae-b77b-4e5b-a416-2c49c9f93820",
+					"spaceGroup": "unknown",
+					"cellA": null,
+					"cellB": null,
+					"cellC": null,
+					"cellAlpha": null,
+					"cellBeta": null,
+					"cellGamma": null,
+					"proteinVO": {
+						"acronym": "Lyso",
+						"name": "Lysozyme"
+					}
+				}
+			}, {
+				"name": "CD022381_A07-3",
+				"code": "",
+				"holderLength": "22",
+				"loopType": "Other",
+				"location": "3",
+				"wireWith": 20,
+				"comments": "Pin type is SPINE",
+				"SMILES": "",
+				"diffractionPlanVO": {
+					"numberOfPositions": 1,
+					"observedResolution": 0,
+					"requiredResolution": 0,
+					"preferredBeamSizeX": 0,
+					"preferredBeamSizeY": 0,
+					"experimentKind": 0,
+					"requiredCompleteness": 0,
+					"requiredSensitivity": 0,
+					"requiredMultipicity": 0
+				},
+				"crystalVO": {
+					"crystalUUID": "b961442e-6918-40e7-95f6-d5e41ae1a804",
+					"spaceGroup": "unknown",
+					"cellA": null,
+					"cellB": null,
+					"cellC": null,
+					"cellAlpha": null,
+					"cellBeta": null,
+					"cellGamma": null,
+					"proteinVO": {
+						"acronym": "Lyso",
+						"name": "Lysozyme"
+					}
+				}
+			}, {
+				"name": "CD022381_A07-2",
+				"code": "",
+				"holderLength": "22",
+				"loopType": "Other",
+				"location": "4",
+				"wireWith": 20,
+				"comments": "Pin type is SPINE",
+				"SMILES": "",
+				"diffractionPlanVO": {
+					"numberOfPositions": 1,
+					"observedResolution": 0,
+					"requiredResolution": 0,
+					"preferredBeamSizeX": 0,
+					"preferredBeamSizeY": 0,
+					"experimentKind": 0,
+					"requiredCompleteness": 0,
+					"requiredSensitivity": 0,
+					"requiredMultipicity": 0
+				},
+				"crystalVO": {
+					"crystalUUID": "a15ffbd1-c434-4332-82ab-094a63de4807",
+					"spaceGroup": "unknown",
+					"cellA": null,
+					"cellB": null,
+					"cellC": null,
+					"cellAlpha": null,
+					"cellBeta": null,
+					"cellGamma": null,
+					"proteinVO": {
+						"acronym": "Lyso",
+						"name": "Lysozyme"
+					}
+				}
+			}, {
+				"name": "CD022381_A07-1",
+				"code": "",
+				"holderLength": "22",
+				"loopType": "Other",
+				"location": "5",
+				"wireWith": 20,
+				"comments": "Pin type is SPINE",
+				"SMILES": "",
+				"diffractionPlanVO": {
+					"numberOfPositions": 1,
+					"observedResolution": 0,
+					"requiredResolution": 0,
+					"preferredBeamSizeX": 0,
+					"preferredBeamSizeY": 0,
+					"experimentKind": 0,
+					"requiredCompleteness": 0,
+					"requiredSensitivity": 0,
+					"requiredMultipicity": 0
+				},
+				"crystalVO": {
+					"crystalUUID": "911922eb-4a39-4f38-b002-46b0149ed5e8",
+					"spaceGroup": "unknown",
+					"cellA": null,
+					"cellB": null,
+					"cellC": null,
+					"cellAlpha": null,
+					"cellBeta": null,
+					"cellGamma": null,
+					"proteinVO": {
+						"acronym": "Lyso",
+						"name": "Lysozyme"
+					}
+				}
+			}, {
+				"name": "CD022381_D03-2",
+				"code": "",
+				"holderLength": "22",
+				"loopType": "Other",
+				"location": "6",
+				"wireWith": 20,
+				"comments": "Pin type is SPINE",
+				"SMILES": "",
+				"diffractionPlanVO": {
+					"numberOfPositions": 1,
+					"observedResolution": 0,
+					"requiredResolution": 0,
+					"preferredBeamSizeX": 0,
+					"preferredBeamSizeY": 0,
+					"experimentKind": 0,
+					"requiredCompleteness": 0,
+					"requiredSensitivity": 0,
+					"requiredMultipicity": 0
+				},
+				"crystalVO": {
+					"crystalUUID": "3149767c-af71-40e7-b358-f0c955af8163",
+					"spaceGroup": "unknown",
+					"cellA": null,
+					"cellB": null,
+					"cellC": null,
+					"cellAlpha": null,
+					"cellBeta": null,
+					"cellGamma": null,
+					"proteinVO": {
+						"acronym": "Lyso",
+						"name": "Lysozyme"
+					}
+				}
+			}, {
+				"name": "CD022381_D03-3",
+				"code": "",
+				"holderLength": "22",
+				"loopType": "Other",
+				"location": "7",
+				"wireWith": 20,
+				"comments": "Pin type is SPINE",
+				"SMILES": "",
+				"diffractionPlanVO": {
+					"numberOfPositions": 1,
+					"observedResolution": 0,
+					"requiredResolution": 0,
+					"preferredBeamSizeX": 0,
+					"preferredBeamSizeY": 0,
+					"experimentKind": 0,
+					"requiredCompleteness": 0,
+					"requiredSensitivity": 0,
+					"requiredMultipicity": 0
+				},
+				"crystalVO": {
+					"crystalUUID": "f8af8221-ffca-40d0-ac89-8e1ed9fb34b8",
+					"spaceGroup": "unknown",
+					"cellA": null,
+					"cellB": null,
+					"cellC": null,
+					"cellAlpha": null,
+					"cellBeta": null,
+					"cellGamma": null,
+					"proteinVO": {
+						"acronym": "Lyso",
+						"name": "Lysozyme"
+					}
+				}
+			}, {
+				"name": "CD022381_E03-3",
+				"code": "",
+				"holderLength": "22",
+				"loopType": "Other",
+				"location": "8",
+				"wireWith": 20,
+				"comments": "Pin type is SPINE",
+				"SMILES": "",
+				"diffractionPlanVO": {
+					"numberOfPositions": 1,
+					"observedResolution": 0,
+					"requiredResolution": 0,
+					"preferredBeamSizeX": 0,
+					"preferredBeamSizeY": 0,
+					"experimentKind": 0,
+					"requiredCompleteness": 0,
+					"requiredSensitivity": 0,
+					"requiredMultipicity": 0
+				},
+				"crystalVO": {
+					"crystalUUID": "195ed76b-4332-401e-8fc4-1af40e3bcec5",
+					"spaceGroup": "unknown",
+					"cellA": null,
+					"cellB": null,
+					"cellC": null,
+					"cellAlpha": null,
+					"cellBeta": null,
+					"cellGamma": null,
+					"proteinVO": {
+						"acronym": "Lyso",
+						"name": "Lysozyme"
+					}
+				}
+			}, {
+				"name": "CD022381_E03-1",
+				"code": "",
+				"holderLength": "22",
+				"loopType": "Other",
+				"location": "9",
+				"wireWith": 20,
+				"comments": "Pin type is SPINE",
+				"SMILES": "",
+				"diffractionPlanVO": {
+					"numberOfPositions": 1,
+					"observedResolution": 0,
+					"requiredResolution": 0,
+					"preferredBeamSizeX": 0,
+					"preferredBeamSizeY": 0,
+					"experimentKind": 0,
+					"requiredCompleteness": 0,
+					"requiredSensitivity": 0,
+					"requiredMultipicity": 0
+				},
+				"crystalVO": {
+					"crystalUUID": "f8772ea3-1502-45ad-a4d4-10ada5395a4b",
+					"spaceGroup": "unknown",
+					"cellA": null,
+					"cellB": null,
+					"cellC": null,
+					"cellAlpha": null,
+					"cellBeta": null,
+					"cellGamma": null,
+					"proteinVO": {
+						"acronym": "Lyso",
+						"name": "Lysozyme"
+					}
+				}
+			}]
+		}]
+	}]
+}

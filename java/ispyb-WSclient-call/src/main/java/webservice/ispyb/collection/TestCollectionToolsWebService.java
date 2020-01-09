@@ -27,7 +27,6 @@ import generated.ws.mx.collection.SessionWS3VO;
 import generated.ws.mx.collection.Workflow3VO;
 import generated.ws.mx.collection.XdsInfo;
 import generated.ws.mx.collection.XfeFluorescenceSpectrumWS3VO;
-import ispyb.server.mx.vos.collections.WorkflowStep3VO;
 import webservice.UtilsDoNotCommit;
 
 
