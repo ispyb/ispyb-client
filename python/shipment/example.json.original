@@ -2,7 +2,6 @@
   "shippingName": "Example Shipment",
   "comments": "This si a test from ispyb-client",
   "shippingType":"DewarTracking",
-  "shippingStatus" : "opened",
   "dewarVOs": [
     {
       "code": "Dewar2",
@@ -10,8 +9,7 @@
       "barcode" : "whatever",
       "containerVOs": [
         {
-          "containerType": "Unipuck",
-	  "capacity":16,
+          "containerType": "Puck",
 	  "code": "CA088A",	
           "sampleVOs": [
             {
@@ -35,7 +33,7 @@
 			"comments": "This is a new comment"
 	        },
                 "proteinVO": {
-                  "acronym": "F133"
+                  "acronym": "F1"
                 },
                 "name": "TFA-21_CD003054_E7-1_S",
 		"spaceGroup": "P65",
