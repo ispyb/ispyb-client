@@ -2,7 +2,6 @@ package webservice.ispyb.autoproc;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -52,32 +51,32 @@ public class TestAutoprocessingToolsWebService {
 			System.out.println("*************** testAutoprocessingWebServices ***************");
 			initWebService();
 
-			 testStoreOrUpdateAutoProc();
-			 testStoreOrUpdateAutoProcProgram();
+//			 testStoreOrUpdateAutoProc();
+//			 testStoreOrUpdateAutoProcProgram();
 			 testStoreOrUpdateAutoProcScaling();
-			 testStoreOrUpdateAutoProcIntegration();
-			 testStoreOrUpdateAutoProcScalingHasInt();
+//			 testStoreOrUpdateAutoProcIntegration();
+//			 testStoreOrUpdateAutoProcScalingHasInt();
 			 testStoreOrUpdateAutoProcScalingStatistics();
-			 
-			 testStoreOrUpdateAutoProcProgramAttachment();
-
-			 testStoreImageQualityIndicators();
-			 testStoreOrUpdateAutoProcStatus();
-			 testStoreOrUpdatePhasingProgramRun();
-			 testStoreOrUpdatePhasingAnalysis();
-			 testStoreOrUpdatePreparePhasingData();
-			 testStoreOrUpdateSubstructureDetermination();
-			 testStoreOrUpdatePhasing();
-			 testStoreOrUpdateModelBuilding();
-			 testStoreOrUpdatePhasingProgramAttachment();
-			 testStoreOrUpdatePhasingHasScaling();
-			 testStoreOrUpdatePhasingStatistics();
-			 testGetSpaceGroupId();
-			 testGetAutoProcScalingIdList();
-			 testStoreOrUpdateImageQualityIndicators();
-			 testStoreOrUpdateImageQualityIndicatorsForFileName();
-			 testStoreOrUpdateImageQualityIndicatorsForFileNames();
-			 testStorePhasingData();
+//			 
+//			 testStoreOrUpdateAutoProcProgramAttachment();
+//
+//			 testStoreImageQualityIndicators();
+//			 testStoreOrUpdateAutoProcStatus();
+//			 testStoreOrUpdatePhasingProgramRun();
+//			 testStoreOrUpdatePhasingAnalysis();
+//			 testStoreOrUpdatePreparePhasingData();
+//			 testStoreOrUpdateSubstructureDetermination();
+//			 testStoreOrUpdatePhasing();
+//			 testStoreOrUpdateModelBuilding();
+//			 testStoreOrUpdatePhasingProgramAttachment();
+//			 testStoreOrUpdatePhasingHasScaling();
+//			 testStoreOrUpdatePhasingStatistics();
+//			 testGetSpaceGroupId();
+//			 testGetAutoProcScalingIdList();
+//			 testStoreOrUpdateImageQualityIndicators();
+//			 testStoreOrUpdateImageQualityIndicatorsForFileName();
+//			 testStoreOrUpdateImageQualityIndicatorsForFileNames();
+//			 testStorePhasingData();
 
 		} catch (Exception e) {
 			System.err.println(e.toString());
@@ -112,12 +111,45 @@ public class TestAutoprocessingToolsWebService {
 		Integer autoProcScalingId = null;
 		Integer autoProcId = 1;//125615;
 		Calendar recordTimeStamp = Calendar.getInstance();
+		
+		Float resolutionEllipsoidAxis11 = new Float (1.1);
+		
+		Float resolutionEllipsoidAxis12 = new Float (1.2);
+		
+		Float resolutionEllipsoidAxis13= new Float (1.3);
+		
+		Float resolutionEllipsoidAxis21= new Float (2.1);
+		
+		Float resolutionEllipsoidAxis22= new Float (2.2);
+		
+		Float resolutionEllipsoidAxis23= new Float (2.3);
+		
+		Float resolutionEllipsoidAxis31= new Float (3.1);
+		
+		Float resolutionEllipsoidAxis32= new Float (3.2);
+		
+		Float resolutionEllipsoidAxis33= new Float (3.3);
+		
+		Float resolutionEllipsoidValue1= new Float (1.0);
+		
+		Float resolutionEllipsoidValue2= new Float (2.0);
+		
+		Float resolutionEllipsoidValue3= new Float (3.0);	
 
-		ret = ws.storeOrUpdateAutoProcScaling(autoProcScalingId, autoProcId, recordTimeStamp);
+
+		ret = ws.storeOrUpdateAutoProcScaling(autoProcScalingId, autoProcId, recordTimeStamp,
+				resolutionEllipsoidAxis11, resolutionEllipsoidAxis12,  resolutionEllipsoidAxis13, 
+				resolutionEllipsoidAxis21,  resolutionEllipsoidAxis22,  resolutionEllipsoidAxis23, 
+				resolutionEllipsoidAxis31,  resolutionEllipsoidAxis32,  resolutionEllipsoidAxis33,
+				resolutionEllipsoidValue1,  resolutionEllipsoidValue2,  resolutionEllipsoidValue3);
 		System.out.println("C This is what I got as a response : autoProcScalingId  = " + ret + "  \n");
 
 		// foreign key null
-		ret = ws.storeOrUpdateAutoProcScaling(autoProcScalingId, null, recordTimeStamp);
+		ret = ws.storeOrUpdateAutoProcScaling(autoProcScalingId, null, recordTimeStamp, 
+				resolutionEllipsoidAxis11, resolutionEllipsoidAxis12,  resolutionEllipsoidAxis13, 
+				resolutionEllipsoidAxis21,  resolutionEllipsoidAxis22,  resolutionEllipsoidAxis23, 
+				resolutionEllipsoidAxis31,  resolutionEllipsoidAxis32,  resolutionEllipsoidAxis33,
+				resolutionEllipsoidValue1,  resolutionEllipsoidValue2,  resolutionEllipsoidValue3);
 		System.out.println("F This is what I got as a response : autoProcScalingId  = " + ret + "  \n");
 
 	}
@@ -180,12 +212,18 @@ public class TestAutoprocessingToolsWebService {
 		Float sigAno= (float) 1.4;
 		Float  ccAno= (float) 1.4;
 		Float isa= (float) 1.4;
+		Float completenessSpherical = (float) 0.01;
+		Float anomalousCompletenessSpherical = (float) 0.03;
+		Float completenessEllipsoidal = (float) 0.01;
+		Float anomalousCompletenessEllipsoidal = (float) 0.03;
 
 		ret = ws.storeOrUpdateAutoProcScalingStatistics(autoProcScalingStatisticsId, scalingStatisticsType, comments,
 				resolutionLimitLow, resolutionLimitHigh, rmerge, rmeasWithinIplusIminus, rmeasAllIplusIminus,
 				rpimWithinIplusIminus, rpimAllIplusIminus, fractionalPartialBias, nTotalObservations,
 				nTotalUniqueObservations, meanIoverSigI, completeness, multiplicity, anomalousCompleteness,
-				anomalousMultiplicity, recordTimeStamp, anomalous, autoProcScalingId, ccHalf, sigAno, ccAno, isa);
+				anomalousMultiplicity, recordTimeStamp, anomalous, autoProcScalingId, ccHalf, sigAno, ccAno, isa,
+				 completenessSpherical, anomalousCompletenessSpherical,
+				completenessEllipsoidal, anomalousCompletenessEllipsoidal);
 		System.out.println("C This is what I got as a response : autoProcScalingStatisticId  = " + ret + "  \n");
 
 		// foreign key null
@@ -193,7 +231,9 @@ public class TestAutoprocessingToolsWebService {
 				comments, resolutionLimitLow, resolutionLimitHigh, rmerge, rmeasWithinIplusIminus, rmeasAllIplusIminus,
 				rpimWithinIplusIminus, rpimAllIplusIminus, fractionalPartialBias, nTotalObservations,
 				nTotalUniqueObservations, meanIoverSigI, completeness, multiplicity, anomalousCompleteness,
-				anomalousMultiplicity, recordTimeStamp, anomalous, null, ccHalf, sigAno, ccAno, isa);
+				anomalousMultiplicity, recordTimeStamp, anomalous, null, ccHalf, sigAno, ccAno, isa,
+				completenessSpherical, anomalousCompletenessSpherical,
+				completenessEllipsoidal, anomalousCompletenessEllipsoidal);
 		System.out.println("F This is what I got as a response : autoProcScalingStatisticId  = " + ret2 + "  \n");
 
 		// update
@@ -202,7 +242,9 @@ public class TestAutoprocessingToolsWebService {
 				resolutionLimitLow, resolutionLimitHigh, rmerge, rmeasWithinIplusIminus, rmeasAllIplusIminus,
 				rpimWithinIplusIminus, rpimAllIplusIminus, fractionalPartialBias, nTotalObservations,
 				nTotalUniqueObservations, meanIoverSigI, completeness, multiplicity, anomalousCompleteness,
-				anomalousMultiplicity, recordTimeStamp, anomalous, autoProcScalingId, ccHalf, sigAno, ccAno, isa);
+				anomalousMultiplicity, recordTimeStamp, anomalous, autoProcScalingId, ccHalf, sigAno, ccAno, isa,
+				completenessSpherical, anomalousCompletenessSpherical,
+				completenessEllipsoidal, anomalousCompletenessEllipsoidal);
 		System.out.println("U his is what I got as a response : autoProcScalingStatisticId  = " + ret + "  \n");
 	}
 

@@ -1,5 +1,6 @@
 package webservice.smis;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
@@ -8,12 +9,13 @@ import java.util.Map;
 
 import javax.xml.ws.BindingProvider;
 
-import com.google.gson.Gson;
+//import com.google.gson.Gson;
 
 import generated.ws.smis.ExpSessionInfoLightVO;
 import generated.ws.smis.ProposalParticipantInfoLightVO;
 import generated.ws.smis.SMISWebService;
 import generated.ws.smis.SMISWebService_Service;
+import generated.ws.smis.SampleSheetInfoLightVO;
 import webservice.UtilsDoNotCommit;
 
 public class TestCallSMISWebService {
@@ -25,7 +27,6 @@ public class TestCallSMISWebService {
 		super();
 		initWebService();
 	}
-
 	
 	private static void initWebService() throws Exception {
 		// Get the services for ISPyB
@@ -46,11 +47,12 @@ public class TestCallSMISWebService {
 
 			System.out.println("*************** testCallSMISWebServices ***************");
 			initWebService();
-			//testCallSMIS();
+			testCallSMIS();
+			testFindSamplesheetInfoLightForProposalPk();
 			//testFindMainProposersForProposal();
 			//testFindSessionsByBeamlineAndDates();
-			testFindModifiedProposals();
-			testFindScientistsForProposal();
+			//testFindModifiedProposals();
+			//testFindScientistsForProposal();
 			//testPersonsForProposal();
 
 		} catch (Exception e) {
@@ -61,8 +63,9 @@ public class TestCallSMISWebService {
 
 	private static void testCallSMIS() throws Exception {
 		System.out.println("*************** testfindRecentSessionsInfoLightForProposalPk ***************");
-		//Long proposalPk =new Long(1170); //MX415
-		Long proposalPk =new Long(57256); //MX1752
+		Long proposalPk =new Long(31529); //MX415
+		//Long proposalPk =new Long(57256); //MX1752
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		List<ExpSessionInfoLightVO>  vos = ws.findRecentSessionsInfoLightForProposalPk(proposalPk);
 
 		if (vos != null) {
@@ -70,10 +73,34 @@ public class TestCallSMISWebService {
 			int i=0;
 			for (Iterator iterator = vos.iterator(); iterator.hasNext();) {
 				ExpSessionInfoLightVO sesVO = (ExpSessionInfoLightVO) iterator.next();
-				System.out.println("Session[" + i + "] = " + sesVO.getBeamlineName() + sesVO.toString() + "\n");
+				System.out.println("Session[" + i + "] = " + sesVO.getBeamlineName() + " - " + formatter.format(sesVO.getStartDate().getTime()) + "\n");
 				i=i+1;
 			}
-			System.out.println("This is what I got as a response :\n" + vos.toString() + vos);
+			System.out.println("This is what I got as a response :\n" + vos.size() + " entries "+ vos);
+		} else
+			System.out.println("This is what I got as a response : NULL \n");
+		
+		
+		System.out.println();
+		System.out.println("------");
+	}
+	
+	private static void testFindSamplesheetInfoLightForProposalPk() throws Exception {
+		System.out.println("*************** testFindSamplesheetInfoLightForProposalPk() ***************");
+		Long proposalPk =new Long(31529); //MX415
+		//Long proposalPk =new Long(57256); //MX1752
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		List<SampleSheetInfoLightVO>  vos = ws.findSamplesheetInfoLightForProposalPk(proposalPk);
+
+		if (vos != null) {
+			System.out.println("Samplesheets length = " + vos.size() + "\n");
+			int i=0;
+			for (Iterator iterator = vos.iterator(); iterator.hasNext();) {
+				SampleSheetInfoLightVO sampleVO = (SampleSheetInfoLightVO) iterator.next();
+				System.out.println("Sample[" + i + "] = " + sampleVO.getAcronym() + "\n");
+				i=i+1;
+			}
+			System.out.println("This is what I got as a response :\n" + vos.size() + " entries ");
 		} else
 			System.out.println("This is what I got as a response : NULL \n");
 		
@@ -84,7 +111,6 @@ public class TestCallSMISWebService {
 	
 	private static void testFindMainProposersForProposal() throws Exception {
 		System.out.println("*************** testfindMainProposersForProposalForProposalPk ***************");
-		//Long pk =new Long(1170); //MX415
 		Long pk =new Long(31529);//mx415
 		//Long pk =new Long(57256); //MX1752
 		List<ProposalParticipantInfoLightVO> vos = ws.findMainProposersForProposal(pk);
@@ -108,8 +134,8 @@ public class TestCallSMISWebService {
 	
 	private static void testFindModifiedProposals() throws Exception {
 		System.out.println("*************** testFindModifiedProposals ***************");
-		String date1="01/01/2018";
-		String date2="30/04/2018";
+		String date1="01/10/2018";
+		String date2="06/10/2018";
 		
 		List<Long>  pks = ws.findNewMXProposalPKs(date1, date2);
 		if (pks != null) {
@@ -171,7 +197,7 @@ public class TestCallSMISWebService {
 		}
 		
 		 System.out.println("Json scientists: ");
-		 System.out.println(new Gson().toJson(vos));
+		 //System.out.println(new Gson().toJson(vos));
 
 		System.out.println();
 		System.out.println("------");
@@ -186,7 +212,7 @@ public class TestCallSMISWebService {
 		}
 		 
 		 System.out.println("Json scientists: ");
-		 System.out.println(new Gson().toJson(vos));
+		// System.out.println(new Gson().toJson(vos));
 
 		System.out.println();
 		System.out.println("------");

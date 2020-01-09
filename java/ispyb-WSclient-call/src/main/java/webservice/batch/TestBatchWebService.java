@@ -12,7 +12,6 @@ import javax.xml.ws.BindingProvider;
 
 import generated.ws.common.batch.IspybWS;
 import generated.ws.common.batch.SessionWS3VO;
-import ispyb.common.util.beamlines.ESRFBeamlineEnum;
 import webservice.UtilsDoNotCommit;
 
 
@@ -79,7 +78,7 @@ public class TestBatchWebService {
 
 				//String proposalAccount = s.getProposalVO().getCode() + s.getProposalVO().getNumber();
 				// beamline
-				ESRFBeamlineEnum abl = ESRFBeamlineEnum.retrieveBeamlineWithName(s.getBeamlineName());
+				ispyb.common.util.beamlines.ESRFBeamlineEnum abl = ESRFBeamlineEnum.retrieveBeamlineWithName(s.getBeamlineName());
 				String beamline = abl == null ? "" : abl.getDirectoryName();
 				String proposalAccount = s.getProposalName();
 				// directory

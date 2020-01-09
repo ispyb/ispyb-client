@@ -18,21 +18,24 @@
     <url.server.valid>http://ispyvalid.esrf.fr:8080</url.server.valid>
     <url.server.localhost>http://localhost:8080</url.server.localhost>
     
-    <ispyb.wsdl.url.prefix>${url.server.prod}/ispyb/ispyb-ws/ispybWS</ispyb.wsdl.url.prefix>
+    <ispyb.wsdl.url.prefix>${url.server.localhost}/ispyb/ispyb-ws/ispybWS</ispyb.wsdl.url.prefix>
     
-    <smis.wsdl.url>http://ovm-smis.esrf.fr:8080/SMISServer-ejb3/SMISWebService/SMISWebServiceBean?wsdl</smis.wsdl.url>   
+    <!--   <smis.wsdl.url>https://smis.esrf.fr/SMISServer-ejb3/SMISWebService/SMISWebServiceBean?wsdl</smis.wsdl.url> -->  
+	<smis.wsdl.url>https://ovm-smis-test.esrf.fr/SMISServer-ejb3/SMISWebService/SMISWebServiceBean?wsdl</smis.wsdl.url>
 
   </properties>
 
   <dependencies>
   
+  <!-- 
   	  	<dependency>
 			<groupId>ispyb</groupId>
 			<artifactId>ispyb-ejb3</artifactId>
 			<version>5.4.3</version>
 			 <scope>provided</scope> 
 		</dependency>
-		
+ -->
+ 		
 	<dependency>
       <groupId>com.sun.xml.ws</groupId>
       <artifactId>jaxws-rt</artifactId>
@@ -44,7 +47,6 @@
 			<artifactId>ispyb-WSclient-gen-all</artifactId>
 			<version>1.0</version>
 	</dependency>
-
    
     <dependency>
       <groupId>junit</groupId>
